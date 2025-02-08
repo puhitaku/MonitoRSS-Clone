@@ -36,25 +36,6 @@ services:
       - DRSS_START=bot
       - DRSS_BOT_TOKEN=
       - DRSS_DATABASE_URI=mongodb://mrss-ferret:27017/rss
-  mrss-web:
-    container_name: mrss-web-container
-    # The image can also be used
-    # image: synzen/monitorss
-    build: .
-    restart: on-failure:3
-    depends_on:
-      - mrss-redis
-      - mrss-mongo
-    ports:
-      - "8081:8081"
-    environment:
-      - DRSS_START=web
-      - DRSSWEB_BOT_TOKEN=
-      - DRSSWEB_DATABASE_REDIS=redis://mrss-redis:6379
-      - DRSSWEB_DATABASE_URI=mongodb://mrss-mongo:27017/rss
-      - DRSSWEB_BOT_REDIRECTURI=
-      - DRSSWEB_BOT_CLIENTID=
-      - DRSSWEB_BOT_CLIENTSECRET=
 
 volumes:
   db-data:
