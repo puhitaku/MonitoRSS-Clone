@@ -18,7 +18,7 @@ COPY package*.json ./
 USER node
 # If package.json hasn't changed, Docker uses same image layer, and npm install
 # will be skipped since Docker assumes output is the same as before
-RUN npm install
+RUN npm install --verbose
 
 
 FROM node:12-alpine
